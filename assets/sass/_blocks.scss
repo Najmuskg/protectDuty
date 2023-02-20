@@ -21,12 +21,12 @@
     background-color: $color--black;
     display: flex;
     flex-direction: column;
-    padding: rem(25) rem(0);
+    padding: rem(10) 0 rem(20) rem(0);
     margin: rem(30) 0;
     @include breakpoint($breakpoint--main + 0px) {
       justify-content: space-between;
       flex-direction: row;
-      padding: rem(25) rem(30);
+      padding: rem(10) 0 rem(10) rem(15);
     }
 
     &_info {
@@ -45,11 +45,18 @@
       border-left: none;
       text-align: center;
       order: 1;
+      
       @include breakpoint($breakpoint--main + 0px) {
         border-left: 0.5px solid $color--white;
         padding-left: rem(30);
         order: 2;
       }
+
+      img{
+        max-width: 260px;
+        max-height: 67px;
+      }
+
     }
   }
 
@@ -62,6 +69,7 @@
     .section--title {
       max-width: 550px;
       margin: 0 auto;
+      letter-spacing: -0.045em;
     }
     &::before,
     &::after {
@@ -88,7 +96,7 @@
 
   .announcement {
     h3 {
-      font-family: $font--secondary;
+      font-family: $font--main;
       font-weight: 700;
       font-size: rem(40);
       color: $color--black;

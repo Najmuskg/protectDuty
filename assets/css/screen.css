@@ -752,7 +752,7 @@ input[type=search]::-webkit-search-results-decoration {
 .banner--wrapper__caption_title h1,
 .banner--wrapper__caption_title h2 {
   color: #ffffff;
-  font-family: "Interstate", sans-serif;
+  font-family: "Proxima Nova Rg", sans-serif;
   font-weight: 700;
   font-size: 1.5rem;
   margin: 0 0 1.875rem;
@@ -851,7 +851,7 @@ input[type=search]::-webkit-search-results-decoration {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 1.5625rem 0rem;
+  padding: 0.625rem 0 1.25rem 0rem;
   margin: 1.875rem 0;
 }
 @media (min-width: 768px) {
@@ -863,7 +863,7 @@ input[type=search]::-webkit-search-results-decoration {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    padding: 1.5625rem 1.875rem;
+    padding: 0.625rem 0 0.625rem 0.9375rem;
   }
 }
 .text--block__title_info {
@@ -900,6 +900,10 @@ input[type=search]::-webkit-search-results-decoration {
             order: 2;
   }
 }
+.text--block__title_logo img {
+  max-width: 260px;
+  max-height: 67px;
+}
 
 .siteCaption--wrapper {
   padding: 1.25rem 0 3.125rem 0;
@@ -910,6 +914,7 @@ input[type=search]::-webkit-search-results-decoration {
 .siteCaption--wrapper .siteCaption .section--title {
   max-width: 550px;
   margin: 0 auto;
+  letter-spacing: -0.045em;
 }
 .siteCaption--wrapper .siteCaption::before, .siteCaption--wrapper .siteCaption::after {
   content: "";
@@ -936,7 +941,7 @@ input[type=search]::-webkit-search-results-decoration {
   padding: 1.875rem 0;
 }
 .announcement--Wrapper .announcement h3 {
-  font-family: "Interstate", sans-serif;
+  font-family: "Proxima Nova Rg", sans-serif;
   font-weight: 700;
   font-size: 2.5rem;
   color: #000000;
