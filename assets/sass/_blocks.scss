@@ -1,0 +1,102 @@
+.content--block {
+  @include cont-padding;
+  position: relative;
+}
+
+.section--subTitle {
+  @include section-subTitle;
+}
+
+.section--title {
+  @include section-title;
+}
+
+  .text--block {
+    & + .text--block {
+      margin-top: rem(20);
+    }
+  }
+
+  .text--block__title {
+    background-color: $color--black;
+    display: flex;
+    flex-direction: column;
+    padding: rem(25) rem(0);
+    margin: rem(30) 0;
+    @include breakpoint($breakpoint--main + 0px) {
+      justify-content: space-between;
+      flex-direction: row;
+      padding: rem(25) rem(30);
+    }
+
+    &_info {
+      order: 2;
+      margin-top: rem(20);
+      @include breakpoint($breakpoint--main + 0px) {
+        order: 1;
+        margin-top: rem(20);
+      }
+      .section--title {
+        color: $color--white;
+        text-align: center;
+      }
+    }
+    &_logo {
+      border-left: none;
+      text-align: center;
+      order: 1;
+      @include breakpoint($breakpoint--main + 0px) {
+        border-left: 0.5px solid $color--white;
+        padding-left: rem(30);
+        order: 2;
+      }
+    }
+  }
+
+.siteCaption--wrapper {
+  padding: rem(20) 0 rem(50) 0;
+
+  .siteCaption {
+    position: relative;
+
+    .section--title {
+      max-width: 550px;
+      margin: 0 auto;
+    }
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      height: 0.78px;
+      width: 0;
+      border-bottom: 0.78px solid $color--1;
+      transform: translate(-50%);
+      transition: all 0.3s ease-in-out 0.4s;
+    }
+    &::before {
+      top: -20px;
+    }
+    &::after {
+      bottom: -20px;
+    }
+  }
+}
+
+.announcement--Wrapper {
+  padding: rem(30) 0;
+
+  .announcement {
+    h3 {
+      font-family: $font--secondary;
+      font-weight: 700;
+      font-size: rem(40);
+      color: $color--black;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+    p {
+      color: $color--black;
+    }
+  }
+}

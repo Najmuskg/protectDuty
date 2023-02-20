@@ -1,0 +1,172 @@
+.header--wrapper {
+  display: block;
+  min-height: 75px;
+  position: relative;
+  z-index: 99;
+
+  @include breakpoint($breakpoint--main + 0px) {
+    min-height: 95px;
+  }
+
+  &.floating--header {
+    .header {
+      background-color: transparent;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 99;
+
+      &.header-sticky {
+        background-color: $color--black;
+        left: 0;
+        position: fixed;
+        top: -100%;
+        width: 100%;
+        z-index: 9999;
+
+        &.header-show {
+          top: 0;
+        }
+      }
+    }
+  }
+}
+
+.header {
+  background-color: $color--white;
+  padding: rem(25) 0;
+  position: relative;
+  transition: all 0.3s ease;
+
+  > .holder {
+    @include d-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__logo {
+    h1,
+    h2 {
+      line-height: 0;
+      margin: 0;
+      transition: all 0.3s ease-in-out;
+      transition-duration: 0.7s;
+    }
+
+    img {
+      max-height: 117px;
+      width: 400px;
+      transition: all 0.3s ease-in-out;
+
+      @include breakpoint($breakpoint--main + 0px) {
+        width: 460px;
+      }
+    }
+  }
+}
+
+.banner--wrapper {
+  @extend %bg-cover;
+  min-height: 100vh;
+  padding: rem(50) 0;
+  @extend %d-flex;
+  align-items: flex-end;
+
+  &::before {
+    background: $color--black;
+    opacity: 0.7;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+  }
+
+  .holder {
+    z-index: 3;
+    width: 100%;
+  }
+
+  &__caption {
+    color: $color--white;
+    width: 100%;
+    text-align: center;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &_title {
+      @extend %slide--up;
+      position: relative;
+      transition-delay: 0.5s;
+
+      h1,
+      h2 {
+        color: $color--white;
+        font-family: $font--secondary;
+        font-weight: 700;
+        font-size: rem(24);
+        margin: 0 0 rem(30);
+        padding-bottom: rem(20);
+        position: relative;
+        transition-delay: 0.2s;
+        line-height: rem(39);
+        text-transform: capitalize;
+
+        @include breakpoint($breakpoint--main + 0px) {
+          font-size: rem(32);
+        }
+      }
+    }
+
+    &_text{
+      max-height: 200px;
+      @extend %slide--up;
+      position: relative;
+      transition-delay: 0.8s;
+    }
+
+    p,
+    ul,
+    ol {
+      color: $color--white;
+      font-weight: 500;
+      font-size:rem(15);
+      line-height: 130%;
+      text-align: center;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    ul,
+    ol {
+      padding-left: rem(20);
+    }
+
+    p {
+      + ul,
+      + ol {
+        margin: rem(10) 0 0;
+      }
+    }
+
+    &.in-view {
+      .banner--wrapper__caption_title,
+      .banner--wrapper__caption_text {
+        @extend %slide--up-done;
+      }
+    }
+  }
+
+  &.shortHeightBanner {
+    min-height: 352px;
+    padding-bottom: rem(40);
+  }
+}

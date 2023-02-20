@@ -1,0 +1,437 @@
+/* ------------------------------------------- */
+/* -- Placeholders */
+/* ------------------------------------------- */
+
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+%wrapper {
+  max-width: $site-width;
+  margin: 0 auto;
+  position: relative;
+  padding-left: rem(20);
+  padding-right: rem(20);
+  @extend %clearfix;
+}
+
+%holder {
+  max-width: $site-width + px;
+  margin: 0 auto;
+  position: relative;
+  @extend %clearfix;
+
+  @include breakpoint(1300px) {
+    max-width: $site-width + px;
+  }
+}
+
+%naked-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+%button {
+  background-color: $color--black;
+  border: 1px solid $color--black;
+  color: $color--white;
+  cursor: pointer;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  font-family: $font--main;
+  font-size: rem(14);
+  font-weight: 700;
+  letter-spacing: 0.045em;
+  line-height: rem(17);
+  overflow: hidden;
+  min-width: 200px;
+  text-align: center;
+  text-decoration: none;
+  padding: rem(15) rem(70);
+  position: relative;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+
+  @include breakpoint($breakpoint--main + 0px) {
+    display: inline-flex;
+    min-width: 215px;
+  }
+
+  &:hover {
+    background-color: transparent;
+    overflow: hidden;
+    color: $color--black;
+  }
+}
+
+.btn {
+  @extend %button;
+}
+
+.btn--block {
+  .btn {
+    + .btn {
+      @include breakpoint($breakpoint--main + 0px) {
+        margin-left: rem(50);
+      }
+
+      @include breakpoint(max-width $breakpoint--main - 1px) {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  &.btn--block__title {
+    margin: 0 0 0;
+  }
+}
+
+.text-center {
+  .btn--load {
+    margin: 0 auto;
+  }
+}
+
+//----------------------------------
+
+* {
+  box-sizing: border-box;
+}
+
+.chromeframe {
+  position: absolute;
+  top: 0;
+  padding: 20px;
+  background: #fff;
+  color: #666;
+}
+
+@-webkit-viewport {
+  width: device-width;
+}
+@-moz-viewport {
+  width: device-width;
+}
+@-ms-viewport {
+  width: device-width;
+}
+@-o-viewport {
+  width: device-width;
+}
+@viewport {
+  width: device-width;
+}
+
+body {
+  background-color: $color--white;
+  color: $color--body-copy;
+  display: flex;
+  font-family: $font--main;
+  // font-weight: 300;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+
+  @include breakpoint(max-width $breakpoint--main - 1px) {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &.menu-extended {
+    @include breakpoint(max-width $breakpoint--main - 1px) {
+      overflow: hidden;
+    }
+  }
+}
+
+img {
+  backface-visibility: hidden;
+  height: auto;
+  max-width: 100%;
+}
+
+p,
+ul,
+ol {
+  color: $color--body-copy;
+  font-family: $font--main;
+  font-size: rem(14);
+  line-height: 164.5%;
+  margin: 0;
+
+  @include breakpoint($breakpoint--main + 0px) {
+    font-size: rem(15);
+  }
+
+  + p,
+  + ul,
+  + ol {
+    margin-top: rem(20);
+
+    @include breakpoint($breakpoint--main + 0px) {
+      margin-top: rem(25);
+    }
+  }
+}
+
+.holder {
+  @extend %holder;
+
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include breakpoint($breakpoint--main + 0px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  &--alt {
+    max-width: 980px;
+  }
+
+  &--fluid {
+    @include breakpoint(max-width $breakpoint--main - 1px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}
+
+/* Headers / Titles
+================================= */
+h1,
+h2,
+h3,
+h4 {
+  line-height: 105%;
+}
+
+h1,
+h3 {
+  font-weight: 700;
+}
+
+h2,
+h4 {
+  font-weight: 275;
+}
+h1 {
+  font-size: rem(28);
+
+  @include breakpoint($breakpoint--main + 0px) {
+    font-size: rem(32);
+  }
+}
+h2 {
+  @include breakpoint($breakpoint--main + 0px) {
+    font-size: rem(32);
+  }
+}
+
+h3 {
+  font-size: rem(30);
+
+  @include breakpoint($breakpoint--main + 0px) {
+    font-size: rem(30);
+  }
+}
+h4 {
+  font-size: rem(20);
+
+  @include breakpoint($breakpoint--main + 0px) {
+    font-size: rem(24);
+  }
+}
+
+input,
+button {
+  &:focus {
+    outline: none;
+  }
+}
+
+/* Links
+================================= */
+
+a {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+a:focus {
+  outline: none;
+}
+
+/* ---------- */
+
+address {
+  font-style: normal;
+}
+
+// ---- WP posts
+.wp-caption {
+  margin-top: $space * 2;
+  margin-bottom: $space * 2;
+  width: auto !important;
+  img {
+    display: block;
+  }
+}
+
+.image-caption {
+  padding: 10px 0;
+  font-size: rem(14);
+}
+
+article.post p.wp-caption-text,
+.wp-caption-text {
+  padding: 10px 0;
+  text-align: center;
+  margin-bottom: $space;
+  font-size: rem(14);
+}
+
+.alignright {
+  display: block;
+
+  @include breakpoint($breakpoint--main + 0px) {
+    display: inline-block;
+    float: right;
+  }
+}
+
+.aligncenter {
+  text-align: center;
+  > * {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// .aligncenter {
+//   display: block;
+//   margin: 0px auto;
+//   clear: both;
+
+//   * {
+//     text-align: center;
+//   }
+// }
+
+article a[href$=".jpg"],
+article a[href$=".png"],
+article a[href$=".gif"] {
+  cursor: zoom-in;
+}
+
+img.size-large {
+  display: block;
+  margin: $space * 2 0 $space * 3 0;
+}
+
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  appearance: none;
+}
+
+// main wrapper
+.main--wrapper {
+  flex: 1 0 auto;
+  overflow: hidden;
+
+  &:not(.bodyColor-blue) {
+    background-image: url(../images/bodybg.png);
+    background-repeat: repeat;
+    background-position: center;
+  }
+}
+
+.home {
+  .main--wrapper {
+    &:not(.bodyColor-blue) {
+      background-image: none;
+    }
+  }
+}
+
+.bg-white {
+  background-color: $color--white;
+}
+.bg-gray {
+  background-color: #f2f2f2;
+
+  .text--img {
+    &__img {
+      &_img {
+        &::before {
+          background-color: #f2f2f2;
+        }
+      }
+    }
+  }
+}
+
+%section--title {
+  font-size: rem(28);
+  margin: 0 0 rem(25);
+  padding: 0 0 rem(20);
+  position: relative;
+
+  @include breakpoint($breakpoint--main + 0px) {
+    font-size: rem(48);
+  }
+
+  &::before {
+    background-color: $color--1;
+    bottom: 0;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    width: 0;
+    transition: all 0.5s ease-in-out;
+    transition-delay: 0.4s;
+  }
+
+  &::after {
+    content: ".";
+    color: $color--1;
+  }
+}
+
+%section--subTitle {
+  color: #acb1b3;
+  font-weight: 700;
+  font-size: rem(12);
+  letter-spacing: 0.055em;
+  margin-bottom: rem(25);
+  text-transform: uppercase;
+
+  @include breakpoint($breakpoint--main + 0px) {
+    font-size: rem(13);
+    margin-bottom: rem(30);
+  }
+}
+
+.jarallax {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}

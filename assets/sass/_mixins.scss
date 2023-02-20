@@ -1,0 +1,70 @@
+%d-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+@mixin d-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin flex($width) {
+  flex: 0 0 $width;
+  max-width: $width;
+  width: 100%;
+}
+
+%bg-cover {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin bg-cover {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin cont-padding {
+  padding: rem(40) 0;
+
+  @include breakpoint($breakpoint--main + 0px) {
+    padding: rem(60) 0;
+  }
+}
+
+
+@mixin block-title {
+  font-family: $font--main;
+  font-weight: 700;
+  font-size: rem(22);
+  letter-spacing: -0.01em;
+  margin: 0 0 rem(15);
+  text-transform: capitalize;
+
+  @include breakpoint($breakpoint--main + 0px) {
+    font-size: rem(35);
+  }
+}
+
+@mixin section-subTitle {
+  position: relative;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+  margin-bottom: 30px;
+}
+
+@mixin section-title {
+  color: $color--body-copy;
+  font-weight: 700;
+  font-size: rem(14);
+  line-height: rem(24);
+  margin: 0 ;
+  position: relative;
+  text-transform: uppercase;
+  @include breakpoint($breakpoint--main + 0px) {
+    font-size: rem(15);
+  }
+}
+

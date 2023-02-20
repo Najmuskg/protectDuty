@@ -1,0 +1,77 @@
+//
+// Block Grid Variables
+//
+//$include-html-grid-classes: $include-html-classes !default;
+
+// We use this to control the maximum number of block grid elements per row
+$default-float: left;
+$block-grid-elements: 12 !default;
+$block-grid-default-spacing: 40px !default;
+
+//
+// Block Grid Mixins
+//
+
+// We use this mixin to create different block-grids. You can apply per-row and spacing options.
+// Setting $base-style to false will ommit default styles.
+@mixin block-grid($per-row: false, $spacing: $block-grid-default-spacing, $base-style: true) {
+  // --------
+  @if $base-style {
+    display: block;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: -($spacing/2);
+    margin-left: -($spacing/2);
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    & > li {
+      display: inline;
+      height: auto;
+      float: $default-float;
+      padding: 0 ($spacing/2) $spacing;
+    }
+  } // end if base-style
+
+  @if $per-row {
+    & > li {
+      width: 100% / $per-row;
+      padding: 0 ($spacing/2) $spacing;
+
+      &:nth-of-type(n) {
+        clear: none;
+      }
+      &:nth-of-type(#{$per-row}n + 1) {
+        clear: both;
+      }
+    }
+  }
+
+  // CSS Grid
+  @supports (display: grid) {
+    // ul
+    // -----------------------------------------------------
+    margin-left: 0;
+    margin-right: 0;
+
+    display: grid;
+    grid-template-columns: repeat(#{$per-row}, 1fr);
+    grid-gap: $spacing;
+
+    & > li {
+      clear: none;
+      width: 100%;
+      padding: 0;
+      display: block;
+      float: none;
+    }
+
+    // -----------------------------------------------------
+  }
+
+  // --------
+}
