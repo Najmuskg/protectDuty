@@ -44,7 +44,6 @@
   display: block;
   align-items: center;
   justify-content: center;
-  font-family: $font--main;
   font-size: rem(14);
   font-weight: 700;
   letter-spacing: 0.045em;
@@ -133,7 +132,7 @@ body {
   color: $color--body-copy;
   display: flex;
   font-family: $font--main;
-  // font-weight: 300;
+  font-weight: 300;
   flex-direction: column;
   min-height: 100vh;
   position: relative;
@@ -159,7 +158,6 @@ p,
 ul,
 ol {
   color: $color--body-copy;
-  font-family: $font--main;
   font-size: rem(14);
   line-height: 164.5%;
   margin: 0;
