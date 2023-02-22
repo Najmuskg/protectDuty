@@ -905,7 +905,7 @@ input[type=search]::-webkit-search-results-decoration {
 .siteCaption--wrapper .siteCaption .section--title {
   max-width: 550px;
   margin: 0 auto;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.025em;
 }
 .siteCaption--wrapper .siteCaption::before, .siteCaption--wrapper .siteCaption::after {
   content: "";
